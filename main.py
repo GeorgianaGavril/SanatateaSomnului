@@ -3,6 +3,7 @@ from procesareDate.tratare_valori_extreme import *
 from procesareDate.codificare import *
 from procesareDate.scalare import *
 from procesareDate.prezentare_generala import *
+from procesareDate.analiza_corelatiilor_intre_variabile import *
 from analize.analiza_distributiei import *
 from procesareDate.tratare_valori_duplicat_nule import *
 from analize.model_regresie import page_model_regresie
@@ -25,6 +26,7 @@ def main():
         "Tratarea valorilor duplicat si nule",
         "Analiza distribuției datelor",
         "Tratarea valorilor extreme",
+        "Analiza corelațiilor între variabile",
         "Codificarea datelor",
         "Scalarea datelor",
         "Model de regresie",
@@ -73,6 +75,8 @@ def main():
         st.session_state.data = page_analiza_distributie(st.session_state.data)
     elif page == "Tratarea valorilor extreme":
         st.session_state.data = page_tratare_valori_extreme(st.session_state.data)
+    elif page == "Analiza corelațiilor între variabile":
+        st.session_state.data = page_analiza_corelatiilor(st.session_state.data)
     elif page == "Codificarea datelor":
         st.session_state.data = page_codificare_date(st.session_state.data)
     elif page == "Scalarea datelor":
