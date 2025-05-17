@@ -14,9 +14,9 @@ def page_model_regresie(data):
     st.markdown("""
     În această secțiune, vom construi un model de regresie liniară pentru a prezice calitatea somnului
     bazată pe celelalte caracteristici disponibile în setul de date. Am ales "Quality of Sleep" ca variabilă țintă
-    deoarece este un indicator esențial al sănătății somnului și este influențat de diverse factori precum
-    stresul, durata somnului, activitatea fizică sau alti factori . Înțelegerea acestora care
-    afectează calitatea somnului poate oferi informații valoroase pentru îmbunătățirea sănătății generale.
+    deoarece este un indicator esențial al sănătății somnului și este influențat de diverși factori precum
+    stresul, durata somnului, activitatea fizică etc. Înțelegerea acestora poate oferi informații valoroase 
+    pentru îmbunătățirea sănătății generale.
     """)
 
     if not isinstance(data, pd.DataFrame):

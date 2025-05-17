@@ -1,9 +1,12 @@
+import os
+
 import streamlit as st
 from procesareDate.tratare_valori_extreme import *
 from procesareDate.codificare import *
 from procesareDate.scalare import *
 from procesareDate.prezentare_generala import *
 from procesareDate.analiza_corelatiilor_intre_variabile import *
+from procesareDate.prelucrari_statistice import page_prelucrari_statistice
 from analize.analiza_distributiei import *
 from procesareDate.tratare_valori_duplicat_nule import *
 from analize.model_regresie import page_model_regresie
@@ -13,10 +16,16 @@ from analize.clasificare import page_analiza_clasificare
 # Configurare pagină
 st.set_page_config(page_title="Sănătatea somnului", page_icon="💤", layout="wide")
 
+
 # Funcția pentru încărcarea și pregătirea datelor
 def load_data():
-    data = pd.read_csv("Sleep_health_and_lifestyle_dataset.csv", index_col=0)
-    return data
+    try:
+        path = os.path.join(os.path.dirname(__file__), "Sleep_health_and_lifestyle_dataset.csv")
+        data = pd.read_csv(path, index_col=0)
+        return data
+    except Exception as e:
+        st.error(f"Eroare la încărcarea fișierului: {e}")
+        raise
 
 def main():
     # Sidebar
@@ -29,6 +38,7 @@ def main():
         "Analiza corelațiilor între variabile",
         "Codificarea datelor",
         "Scalarea datelor",
+        "Prelucrări statistice",
         "Model de regresie",
         "Analiza clustering",
         "Model de clasificare"  # Am adăugat pagina pentru clasificare
@@ -81,12 +91,15 @@ def main():
         st.session_state.data = page_codificare_date(st.session_state.data)
     elif page == "Scalarea datelor":
         st.session_state.data = page_scalare_date(st.session_state.data)
+    elif page == "Prelucrări statistice":
+        st.session_state.data = page_prelucrari_statistice(st.session_state.data)
     elif page == "Analiza clustering":
         st.session_state.data = page_analiza_clustering(st.session_state.data)
     elif page == "Model de regresie":
         st.session_state.data = page_model_regresie(st.session_state.data)
     elif page == "Model de clasificare":
         st.session_state.data = page_analiza_clasificare(st.session_state.data)
+
 
 if __name__ == "__main__":
     main()
