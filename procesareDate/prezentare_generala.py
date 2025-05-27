@@ -25,4 +25,8 @@ def page_prezentare_generala(data):
                 - **Heart Rate:** Ritmul cardiac de repaus al persoanei în bătăi pe minut.
                 - **Daily Steps:** Numărul de pași pe care îl face persoana respectivă.
                 - **Sleep Disorder:** Indică tulburarea de somn (dacă există) a persoanei respective.""")
+
+    st.markdown("Verificăm statisticile descriptive: ")
+    st.write(data.describe())
+
     return data

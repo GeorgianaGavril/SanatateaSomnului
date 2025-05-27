@@ -36,9 +36,9 @@ def main():
         "Analiza distribuției datelor",
         "Tratarea valorilor extreme",
         "Analiza corelațiilor între variabile",
+        "Prelucrări statistice",
         "Codificarea datelor",
         "Scalarea datelor",
-        "Prelucrări statistice",
         "Model de regresie",
         "Analiza clustering",
         "Model de clasificare"  # Am adăugat pagina pentru clasificare
@@ -87,12 +87,12 @@ def main():
         st.session_state.data = page_tratare_valori_extreme(st.session_state.data)
     elif page == "Analiza corelațiilor între variabile":
         st.session_state.data = page_analiza_corelatiilor(st.session_state.data)
+    elif page == "Prelucrări statistice":
+        st.session_state.data = page_prelucrari_statistice(st.session_state.data)
     elif page == "Codificarea datelor":
         st.session_state.data = page_codificare_date(st.session_state.data)
     elif page == "Scalarea datelor":
         st.session_state.data = page_scalare_date(st.session_state.data)
-    elif page == "Prelucrări statistice":
-        st.session_state.data = page_prelucrari_statistice(st.session_state.data)
     elif page == "Analiza clustering":
         st.session_state.data = page_analiza_clustering(st.session_state.data)
     elif page == "Model de regresie":
