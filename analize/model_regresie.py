@@ -474,12 +474,13 @@ def page_model_regresie(data):
 
             st.markdown("#### Analiză detaliată a predicției:")
             error = abs(single_prediction - actual_value)
-            error_percent = (error / actual_value) * 100 if actual_value != 0 else float('inf')
+            error_percent = (error / abs(actual_value)) * 100 if actual_value != 0 else float('inf')
 
             if apply_log:
                 error_original = abs(single_prediction_original - actual_value_original)
                 error_percent_original = (
-                                                     error_original / actual_value_original) * 100 if actual_value_original != 0 else float(
+                                                 error_original / abs(
+                                             actual_value_original)) * 100 if actual_value_original != 0 else float(
                     'inf')
                 col1, col2 = st.columns(2)
                 col1.metric("Eroare absolută", f"{error_original:.4f}")
