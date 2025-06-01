@@ -1,5 +1,5 @@
 import streamlit as st
-from utils import *
+from .utils import *
 import numpy as np
 import math
 import matplotlib.pyplot as plt
@@ -138,8 +138,10 @@ def page_tratare_valori_extreme(data):
     plt.tight_layout()
     st.pyplot(plt)
 
-    st.markdown("Observăm că cele 3 transformări nu aduc modificări majore asupra setului de date. "
-                "Mai departe vom continua cu setul de date rezultat din metoda IQR.")
+    st.markdown("Observăm că cele 3 transformări nu aduc modificări majore asupra setului de date, însă se pot vedea câteva diferențe. "
+"Metoda IQR păstrează forma generală, dar valorile extreme au fost eliminate. "
+"Față de IQR, metoda Z-Score a eliminat mai puține valori extreme, iar distribuțiile au rămas mai largi. "
+"În ceea ce privește metoda logaritmică, skew-ul s-a diminuat, dar valorile extreme sunt încă acolo. ")
 
     # Selectarea metodei de tratare a valorilor extreme
     method_choice = st.selectbox(

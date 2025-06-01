@@ -36,7 +36,7 @@ def main():
         "Analiza distribuției datelor",
         "Tratarea valorilor extreme",
         "Analiza corelațiilor între variabile",
-        "Prelucrări statistice",
+        "Prelucrări statistice și funcții de grup",
         "Codificarea datelor",
         "Scalarea datelor",
         "Model de regresie",
@@ -87,7 +87,7 @@ def main():
         st.session_state.data = page_tratare_valori_extreme(st.session_state.data)
     elif page == "Analiza corelațiilor între variabile":
         st.session_state.data = page_analiza_corelatiilor(st.session_state.data)
-    elif page == "Prelucrări statistice":
+    elif page == "Prelucrări statistice și funcții de grup":
         st.session_state.data = page_prelucrari_statistice(st.session_state.data)
     elif page == "Codificarea datelor":
         st.session_state.data = page_codificare_date(st.session_state.data)

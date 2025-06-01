@@ -23,4 +23,11 @@ def page_prelucrari_statistice(data):
         ax.set_ylabel("Media")
         st.pyplot(fig)
 
+        # Functii de grup
+        st.write("## Funcții de grup")
+        st.write(f"#### Grupăm în funcție de `{group_col}` și normalizăm coloana `{num_col}`:")
+        result = data[[ group_col, num_col]].copy()
+        result['Date normalizate'] = data.groupby(group_col)[num_col].transform(lambda x: (x - x.mean()) / x.std())
+        st.dataframe(result)
+
     return data
